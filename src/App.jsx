@@ -5,6 +5,7 @@ import Home from "./Pages/Home";
 import MovieDetails from "./Pages/MovieDetails";
 import PageNotFound from "./Pages/PageNotFound";
 import { MovieProvider } from "./Context/MovieContext";
+import Footer from "./Components/Footer";
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
             {/* No match Routing */}
             <Route path="*" element={<PageNotFound />} />
           </Routes>
+          <Footer />
         </BrowserRouter>
       </MovieProvider>
     </div>
