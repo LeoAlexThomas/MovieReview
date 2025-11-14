@@ -1,23 +1,68 @@
-import React, { Fragment, useEffect } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import useApiCall from "../Hooks/useApiCall";
 import ErrorMessage from "../Components/ErrorMessage";
 import Loading from "../Components/Loading";
 import EmptyMessage from "../Components/EmptyMessage";
 import CrewCard from "../Components/CrewCard";
-import { FaCalendarAlt } from "react-icons/fa";
+import StarRating from "../Components/StarRating";
+import find from "lodash/find";
+import isEmpty from "lodash/isEmpty";
+import isNil from "lodash/isNil";
+import CustomToast from "../Components/CustomToast";
+import { getRatings, updateRatings } from "../utils/common";
 
 const MovieDetails = () => {
   const location = useLocation();
   const movieId = location.pathname.split("/").pop();
+  const [rating, setRating] = useState(null);
+
+  // Toast Message state
+  const [isMessageOpen, setIsMessageOpen] = useState(false);
+
+  const handleMessageModelOpen = () => setIsMessageOpen(true);
+  const handleMessageModelClose = () => setIsMessageOpen(false);
 
   const { item, isLoading, error } = useApiCall({
     url: `https://api.themoviedb.org/3/movie/${movieId}`,
   });
 
   useEffect(() => {
+    // Used to scroll to top of the page whenever user visit this page
     window.scrollTo(0, 0);
+    // Below section is used to update rating count based on user rating which stored in localstorage
+    const localRatings = getRatings();
+    const currentRating = find(
+      localRatings,
+      (ele) => ele.id === Number(movieId)
+    );
+    if (isNil(currentRating)) {
+      return;
+    }
+    setRating(currentRating.rating);
   }, []);
+
+  const handleRatingChange = (val) => {
+    const localRatings = getRatings();
+    const currentRating = { id: item.id, rating: val };
+    if (isNil(localRatings) || isEmpty(localRatings)) {
+      // Creating the storage data for the first time
+      updateRatings([currentRating]);
+    } else {
+      const storedRating = find(localRatings, (ele) => ele.id === item.id);
+      // Adding corresponding data to first time
+      if (isNil(storedRating)) {
+        updateRatings([...localRatings, currentRating]);
+      } else {
+        // Updating existing data
+        const ratingIndex = localRatings.indexOf(storedRating);
+        localRatings.splice(ratingIndex, 1, currentRating);
+        updateRatings(localRatings);
+      }
+    }
+    handleMessageModelOpen();
+    setRating(val);
+  };
 
   if (error) {
     return (
@@ -38,7 +83,16 @@ const MovieDetails = () => {
 
   return (
     <div className="flex flex-col justify-center">
-      <div className="h-[550px] 2xl:h-[750px] overflow-hidden self-stretch bg-secondary">
+      {/* Rating success toast */}
+      {isMessageOpen && (
+        <CustomToast
+          toastId="successMessage"
+          message="Rating added successfully"
+          onToastClose={handleMessageModelClose}
+          isWarningToast={false}
+        />
+      )}
+      <div className="h-[550px] 2xl:h-[750px] overflow-hidden self-stretch ">
         {item.backdrop_path === null ? (
           <img
             src="https://www.shutterstock.com/image-vector/film-clapper-3d-cartoon-icon-600nw-2239181291.jpg"
@@ -60,6 +114,16 @@ const MovieDetails = () => {
                 {item.tagline}
               </p>
             )}
+          </div>
+          <div>
+            <p className="text-lg font-medium">
+              {(item.vote_average / 2).toFixed(1)}&nbsp;
+              <span className="text-sm font-normal">
+                {/* NOTE: Updating rating count based on user rating from local storage */}
+                ({item.vote_count + (isNil(rating) ? 0 : 1)}){" "}
+              </span>
+            </p>
+            <StarRating initialRating={item.vote_average / 2} />
           </div>
         </div>
         {item.genres.length !== 0 && (
@@ -99,6 +163,19 @@ const MovieDetails = () => {
               );
             })}
           </div>
+        </div>
+        <div className="mb-8">
+          <div className="flex gap-4 mb-4 items-center">
+            <h3 className="text-2xl font-bold">Your rating: </h3>
+            <p className="text-sm text-gray-400">
+              (NOTE: This rating is stored locally)
+            </p>
+          </div>
+          <StarRating
+            isEnabled={true}
+            onStarSelect={handleRatingChange}
+            initialRating={rating}
+          />
         </div>
       </div>
     </div>
