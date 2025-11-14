@@ -16,18 +16,18 @@ const Pagination = ({ totalPages }) => {
         <IoIosArrowBack
           className={
             pageNumber === 1
-              ? "text-secondary-text w-6 h-6 cursor-not-allowed"
+              ? "text-black w-6 h-6 cursor-not-allowed"
               : "text-primary-text w-6 h-6 cursor-pointer"
           }
           onClick={handlePagePrevious}
         />
-        <p className="text-base font-medium text-secondary-text">
+        <p className="text-base font-medium text-black">
           Pages: {pageNumber} of {totalPages}
         </p>
         <IoIosArrowForward
           className={
             pageNumber === totalPages
-              ? "text-secondary-text w-6 h-6 cursor-not-allowed"
+              ? "text-black w-6 h-6 cursor-not-allowed"
               : "text-primary-text w-6 h-6 cursor-pointer"
           }
           onClick={handlePageNext}

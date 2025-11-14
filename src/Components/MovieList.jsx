@@ -41,7 +41,7 @@ const MovieList = () => {
   return (
     <div className="px-4 max-w-[1440px] mx-auto pb-8 ">
       <h3 className="text-2xl font-bold my-6">Movies</h3>
-      <div className="flex flex-wrap gap-10 items-start justify-center">
+      <div className="flex flex-wrap gap-8 items-start justify-center">
         {item.results.map((mov) => {
           return (
             <Fragment key={mov.id}>

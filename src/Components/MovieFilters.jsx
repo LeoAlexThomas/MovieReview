@@ -4,14 +4,13 @@ import useApiCall from "../Hooks/useApiCall";
 import ErrorMessage from "./ErrorMessage";
 import Loading from "./Loading";
 import SelectField from "./FormComponents/SelectField";
-import InputField from "./FormComponents/InputField";
 import range from "lodash/range";
 import SearchBar from "./SearchBar";
 
 const MovieFilters = () => {
-  const { year, setYear, rating, setRating } = useMovieContext();
+  const { year, setYear } = useMovieContext();
   return (
-    <div className="max-w-[1440px] mx-auto p-4 bg-accent flex gap-4 flex-col lg:flex-row justify-between">
+    <div className="max-w-[1440px] mx-auto p-4 flex gap-4 flex-col lg:flex-row justify-between">
       <SearchBar />
       <div className=" flex gap-4 flex-col md:flex-row">
         <GenreFilter />
