@@ -6,7 +6,7 @@ const Header = () => {
     navigate("/");
   };
   return (
-    <nav className="w-full bg-primary sticky top-0 z-30 ">
+    <nav className="w-full bg-primary">
       <div className="h-16 max-w-[1440px] mx-auto px-4 py-2 flex gap-2 items-center ">
         <img
           src="/images/logo.png"
