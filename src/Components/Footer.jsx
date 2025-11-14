@@ -5,29 +5,21 @@ import { SiInstagram } from "react-icons/si";
 
 const Footer = () => {
   return (
-    <footer className="w-full bg-secondary p-4">
-      <ul className="flex gap-4 items-center justify-center mb-4">
-        <li>
-          <BrandContainer>
-            <CgMail className="w-6 h-6" />
-          </BrandContainer>
-        </li>
-        <li>
-          <BrandContainer>
-            <LuFacebook className="w-6 h-6" />
-          </BrandContainer>
-        </li>
-        <li>
-          <BrandContainer>
-            <BsTwitterX className="w-6 h-6" />
-          </BrandContainer>
-        </li>
-        <li>
-          <BrandContainer>
-            <SiInstagram className="w-6 h-6" />
-          </BrandContainer>
-        </li>
-      </ul>
+    <footer className="w-full bg-secondary py-8 px-4">
+      <div className="flex gap-4 items-center justify-center mb-4">
+        <BrandContainer>
+          <CgMail className="w-6 h-6" />
+        </BrandContainer>
+        <BrandContainer>
+          <LuFacebook className="w-5 h-5" />
+        </BrandContainer>
+        <BrandContainer>
+          <BsTwitterX className="w-5 h-5" />
+        </BrandContainer>
+        <BrandContainer>
+          <SiInstagram className="w-5 h-5" />
+        </BrandContainer>
+      </div>
       <p className="text-sm text-white text-center">
         Copyright 2025 © LEO ALEX THOMAS, All Right Reserved
       </p>
