@@ -6,7 +6,6 @@ export const MovieProvider = ({ children }) => {
   const [search, setSearch] = useState("");
   const [genre, setGenre] = useState("");
   const [year, setYear] = useState("");
-  const [rating, setRating] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
 
   useEffect(() => {
@@ -23,8 +22,6 @@ export const MovieProvider = ({ children }) => {
         setGenre,
         year,
         setYear,
-        rating,
-        setRating,
         pageNumber,
         setPageNumber,
       }}
