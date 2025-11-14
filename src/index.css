@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+@theme {
+  --font-Title: Outfit, sans-serif;
+  --font-SubTitle: Montserrat, sans-serif;
+  --font-body: Inter, sans-serif;
+
+  --color-primary: #008cdb;
+  --color-secondary: #4d4d4d;
+  --color-back: #ffffff;
+  --color-accent: #e6f3fb;
+  --color-rating: #ffc857;
+  --color-error: #ff5555;
+}
