@@ -1,5 +1,5 @@
-import MovieFilters from "../Components/MovieFilters";
-import MovieList from "../Components/MovieList";
+import MovieFilters from "../Components/MovieComponents/MovieFilters";
+import MovieList from "../Components/MovieComponents/MovieList";
 
 const Home = () => {
   return (

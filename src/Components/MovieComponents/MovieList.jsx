@@ -1,11 +1,11 @@
 import React, { Fragment, useEffect } from "react";
-import { useMovieContext } from "../Context/MovieContext";
-import useApiCall from "../Hooks/useApiCall";
-import ErrorMessage from "./ErrorMessage";
-import Loading from "./Loading";
-import EmptyMessage from "./EmptyMessage";
-import MovieCard from "./MovieCard";
-import Pagination from "./Pagination";
+import { useMovieContext } from "../../Context/MovieContext";
+import useApiCall from "../../Hooks/useApiCall";
+import ErrorMessage from "../ErrorMessage";
+import Loading from "../Loading";
+import EmptyMessage from "../EmptyMessage";
+import MovieCard from "../MovieComponents/MovieCard";
+import Pagination from "../Pagination";
 
 const MovieList = () => {
   const { search, year, genre, pageNumber } = useMovieContext();

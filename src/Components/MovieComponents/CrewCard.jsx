@@ -1,5 +1,5 @@
 import React from "react";
-import CommonImageViewer from "./CommonImageViewer";
+import CommonImageViewer from "../CommonImageViewer";
 
 const CrewCard = ({ crew }) => {
   return (

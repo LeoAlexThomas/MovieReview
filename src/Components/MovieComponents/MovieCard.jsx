@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import StarRating from "./StarRating";
-import CommonImageViewer from "./CommonImageViewer";
+import StarRating from "../StarRating";
+import CommonImageViewer from "../CommonImageViewer";
 
 const MovieCard = ({ movie }) => {
   const navigate = useNavigate();

@@ -1,11 +1,11 @@
 import React from "react";
-import { useMovieContext } from "../Context/MovieContext";
-import useApiCall from "../Hooks/useApiCall";
-import ErrorMessage from "./ErrorMessage";
-import Loading from "./Loading";
-import SelectField from "./FormComponents/SelectField";
+import { useMovieContext } from "../../Context/MovieContext";
+import useApiCall from "../../Hooks/useApiCall";
+import ErrorMessage from "../ErrorMessage";
+import Loading from "../Loading";
+import SelectField from "../FormComponents/SelectField";
 import range from "lodash/range";
-import SearchBar from "./SearchBar";
+import SearchBar from "../SearchBar";
 
 const MovieFilters = () => {
   const { year, setYear } = useMovieContext();

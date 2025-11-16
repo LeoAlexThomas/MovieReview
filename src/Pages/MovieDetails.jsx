@@ -4,7 +4,7 @@ import useApiCall from "../Hooks/useApiCall";
 import ErrorMessage from "../Components/ErrorMessage";
 import Loading from "../Components/Loading";
 import EmptyMessage from "../Components/EmptyMessage";
-import CrewCard from "../Components/CrewCard";
+import CrewCard from "../Components/MovieComponents/CrewCard";
 import StarRating from "../Components/StarRating";
 import find from "lodash/find";
 import isEmpty from "lodash/isEmpty";
