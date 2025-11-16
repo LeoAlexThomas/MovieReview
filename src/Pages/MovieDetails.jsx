@@ -106,7 +106,7 @@ const MovieDetails = () => {
         )}
       </div>
       <div className="w-full max-w-[1440px] mx-auto px-4">
-        <div className="flex gap-4 items-center my-4">
+        <div className="flex flex-col md:flex-row gap-4 items-stretch md:items-center my-4">
           <div>
             <h2 className="font-Title text-3xl font-bold">{item.title}</h2>
             {item.tagline !== null && (
@@ -120,7 +120,8 @@ const MovieDetails = () => {
               {(item.vote_average / 2).toFixed(1)}&nbsp;
               <span className="text-sm font-normal">
                 {/* NOTE: Updating rating count based on user rating from local storage */}
-                ({item.vote_count + (isNil(rating) ? 0 : 1)}){" "}
+                {/* ({item.vote_count + (isNil(rating) ? 0 : 1)}){" "} */}(
+                {item.vote_count})
               </span>
             </p>
             <StarRating initialRating={item.vote_average / 2} />
@@ -140,12 +141,14 @@ const MovieDetails = () => {
             })}
           </ul>
         )}
-        <div className="mb-8 ">
-          <h3 className="text-2xl font-bold mb-4">About the movie</h3>
-          <p className="text-base text-justify md:text-start">
-            {item.overview}
-          </p>
-        </div>
+        {!isNil(item.overview) && !isEmpty(item.overview) && (
+          <div className="mb-8 ">
+            <h3 className="text-2xl font-bold mb-4">About the movie</h3>
+            <p className="text-base text-justify md:text-start">
+              {item.overview}
+            </p>
+          </div>
+        )}
         <div className="mb-8 flex flex-col gap-4 items-start">
           <h3 className="text-2xl font-bold">Languages: </h3>
           <p className="text-base ">

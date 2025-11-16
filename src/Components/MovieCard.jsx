@@ -1,22 +1,22 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import StarRating from "./StarRating";
-import find from "lodash/find";
-import { getRatings } from "../utils/common";
-import isNil from "lodash/isNil";
+// import find from "lodash/find";
+// import { getRatings } from "../utils/common";
+// import isNil from "lodash/isNil";
 
 const MovieCard = ({ movie }) => {
   const navigate = useNavigate();
-  const [isRatingPresent, setIsRatingPresent] = useState(false);
+  // const [isRatingPresent, setIsRatingPresent] = useState(false);
   const handleCardClick = () => {
     navigate(`/movieDetails/${movie.id}`);
   };
 
-  useEffect(() => {
-    const localRatings = getRatings();
-    const currentMovieRating = find(localRatings, (ele) => ele.id === movie.id);
-    setIsRatingPresent(!isNil(currentMovieRating));
-  }, []);
+  // useEffect(() => {
+  //   const localRatings = getRatings();
+  //   const currentMovieRating = find(localRatings, (ele) => ele.id === movie.id);
+  //   setIsRatingPresent(!isNil(currentMovieRating));
+  // }, []);
 
   return (
     <div className="w-full sm:w-64  flex flex-col gap-2">
@@ -42,7 +42,9 @@ const MovieCard = ({ movie }) => {
       </div>
       <div className="flex gap-2 items-center">
         <StarRating isEnabled={false} initialRating={movie.vote_average / 2} />
-        <p>({movie.vote_count + (isRatingPresent ? 1 : 0)})</p>
+        {/* NOTE: Updating rating count based on user rating from local storage */}
+        {/* <p>({movie.vote_count + (isRatingPresent ? 1 : 0)})</p> */}
+        <p>({movie.vote_count})</p>
       </div>
     </div>
   );

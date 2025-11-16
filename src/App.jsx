@@ -9,7 +9,7 @@ import Footer from "./Components/Footer";
 
 const App = () => {
   return (
-    <div className="bg-back font-body">
+    <div className="bg-gray-50 font-body">
       <MovieProvider>
         <BrowserRouter>
           <Header />

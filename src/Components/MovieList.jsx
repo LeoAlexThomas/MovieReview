@@ -35,12 +35,11 @@ const MovieList = () => {
   }
 
   if (item === null || item.total_results === 0) {
-    return <EmptyMessage message="Movies not found" />;
+    return <EmptyMessage message="Movies not found" showFullScreen={true} />;
   }
 
   return (
-    <div className="px-4 max-w-[1440px] mx-auto pb-8 ">
-      <h3 className="text-2xl font-bold my-6">Movies</h3>
+    <>
       <div className="flex flex-wrap gap-8 items-start justify-center">
         {item.results.map((mov) => {
           return (
@@ -51,7 +50,7 @@ const MovieList = () => {
         })}
       </div>
       <Pagination totalPages={item.total_pages} />
-    </div>
+    </>
   );
 };
 

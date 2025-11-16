@@ -47,7 +47,7 @@ const SelectField = ({ id, value, onChange, options, label }) => {
       </select>
       <i
         id={`${id}-${label}`}
-        className="fa-solid fa-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 "
+        className="fa-solid fa-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-primary "
       />
     </div>
   );

@@ -8,7 +8,7 @@ const ErrorMessage = ({ message, showFullScreen }) => {
       }`}
     >
       <MdErrorOutline className="text-error w-10 h-10" />
-      <p className="text-base font-medium text-center text-error">
+      <p className="font-SubTitle text-base font-bold text-center text-error">
         {message ?? "Something went wrong"}
       </p>
     </div>
