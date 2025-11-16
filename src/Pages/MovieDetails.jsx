@@ -11,6 +11,7 @@ import isEmpty from "lodash/isEmpty";
 import isNil from "lodash/isNil";
 import CustomToast from "../Components/CustomToast";
 import { getRatings, updateRatings } from "../utils/common";
+import CommonImageViewer from "../Components/CommonImageViewer";
 
 const MovieDetails = () => {
   const location = useLocation();
@@ -93,17 +94,7 @@ const MovieDetails = () => {
         />
       )}
       <div className="h-[550px] 2xl:h-[750px] overflow-hidden self-stretch ">
-        {item.backdrop_path === null ? (
-          <img
-            src="https://www.shutterstock.com/image-vector/film-clapper-3d-cartoon-icon-600nw-2239181291.jpg"
-            className="object-cover h-full w-full overflow-hidden "
-          />
-        ) : (
-          <img
-            src={`https://image.tmdb.org/t/p/original/${item.backdrop_path}`}
-            className="object-cover h-full w-full overflow-hidden"
-          />
-        )}
+        <CommonImageViewer imagePath={item.backdrop_path} />
       </div>
       <div className="w-full max-w-[1440px] mx-auto px-4">
         <div className="flex flex-col md:flex-row gap-4 items-stretch md:items-center my-4">
