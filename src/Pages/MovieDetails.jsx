@@ -138,6 +138,9 @@ const MovieDetails = () => {
             <p className="text-base text-justify md:text-start">
               {item.overview}
             </p>
+            <p className="text-sm font-medium text-gray-400">
+              Release Year: {item.release_date}
+            </p>
           </div>
         )}
         <div className="mb-8 flex flex-col gap-4 items-start">
