@@ -1,16 +1,119 @@
-# React + Vite
+# Movie Review
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern movie search and review web application built with React and Vite, featuring a responsive design with Tailwind CSS.
 
-Currently, two official plugins are available:
+## Technologies Used
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- React 19
+- Vite 7
+- Tailwind CSS 4
+- React Icons
+- Lodash
+- Axios for API calls
+- TMDB APIs for data
 
-## React Compiler
+## Project Structure
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```
+MovieReview/
+├── public/
+│   ├── Images/
+│   │   ├── logo.png
+├── src/
+│   ├── Components/
+│   │   ├── FormComponents/
+│   │   │   ├── SelectField.jsx
+│   │   ├── MovieComponents/
+│   │   │   ├── CrewCard.jsx
+│   │   │   ├── MovieCard.jsx
+│   │   │   ├── MovieFilters.jsx
+│   │   │   ├── MovieList.jsx
+│   │   ├── CommonImageViewer.jsx
+│   │   ├── CustomToast.jsx
+│   │   ├── EmptyMessage.jsx
+│   │   ├── ErrorMessage.jsx
+│   │   ├── Footer.jsx
+│   │   ├── Header.jsx
+│   │   ├── Loading.jsx
+│   │   └── Pagination.jsx
+│   │   └── SearchBar.jsx
+│   │   └── StarRating.jsx
+│   ├── Context/
+│   │   ├── MovieContext.jsx
+│   ├── Hooks/
+│   │   ├── useApiCall.jsx
+│   ├── Pages/
+│   │   ├── Home.jsx
+│   │   ├── MovieDetails.jsx
+│   │   ├── PageNotFound.jsx
+│   ├── App.jsx
+│   ├── index.css
+│   └── main.jsx
+├── index.html
+├── netlify.toml
+├── vite.config.js
+├── eslint.config.js
+└── package.json
+```
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Prerequisites
+
+- Node.js (Latest LTS version recommended)
+- npm or yarn package manager
+
+### Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/LeoAlexThomas/MovieReview.git
+   cd MovieReview
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
+
+### Development
+
+To start the development server:
+
+```bash
+npm run dev
+# or
+yarn dev
+```
+
+The application will be available at `http://localhost:5173` by default.
+
+### Building for Production
+
+To create a production build:
+
+```bash
+npm run build
+# or
+yarn build
+```
+
+To preview the production build:
+
+```bash
+npm run preview
+# or
+yarn preview
+```
+
+## Features
+
+- Modern React components using functional components and hooks
+- Responsive design with Tailwind CSS
+- Movie Search by name, Release Year and Genre.
+- Movies will be listed in pagination manner.
+- Movie Detailed info on Movie info page.
+- User can give rating from 1 - 5 star at Movie Detailed page
